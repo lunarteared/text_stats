@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statystyki tekstu</title>
+    <style>
+        textarea {
+            resize: none;
+            margin-top:5%;
+            margin-left:25%;
+            width: 50%;
+            height: 200px;
+            background-color: #A4EB94;
+        }
+
+        body {
+            margin:0;
+            background-color: #9AF5A6;
+        }
+        
+
+        #teksty {
+            position: absolute;
+            margin-top:1%;
+            margin-left:25%;
+            font-size:20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color:#29352e;
+            font-weight:bold;
+            padding-right:100px;
+        }
+        
+        div {
+            font-weight: 5px;
+            border: 2px, black;
+            margin-left:13.4%;
+            size:100px;
+            line-height: 2em;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color:#29352e;
+        }
+
+        #ozdoba {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color:#29352e;
+            border-radius: 50%;
+            margin-left:-15%;
+        }
+
+        #kolo {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color:#9AF5A6;
+            margin-left:80%;
+            margin-top:45%;
+            rotate: 30deg;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Text_statistics</h1>
+    <div id="ozdoba">
+        <div id="kolo">
+
+        </div>
+
+    </div>
+    <div id="kolo"></div>
+    <textarea></textarea>
+    <div id="teksty">
+        <div>Ilość znaków: <span id="num-characters"> </span></div>
+        <div>Ilość słów: <span id="num-words"> </span></div>
+        <div>Ilość zdań: <span id="num-sentences"> </span></div>
+    </div>
+
+
+    <script>
+        let textarea = document.getElementsByTagName("textarea")[0];
+        textarea.addEventListener("input", onChange);
+
+        function onChange() {
+            const data = textarea.value;
+            // console.log(data;)
+            const numCharacters = data.length;
+            const numWords = data.split(" ").length;
+            const numSentences = data.split(".").length;
+            document.getElementById("num-characters").innerHTML = numCharacters;
+            document.getElementById("num-words").innerHTML = numWords;
+            document.getElementById("num-sentences").innerHTML = numSentences;
+        }
+
+    </script>
+    
+</body>
+</html>
